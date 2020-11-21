@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { getUsers, getPost } from "../modules/sample";
-import Sample from "../components/Sample";
 import { connect } from "react-redux";
+import Sample from "../components/Sample";
+import { getPost, getUsers } from "../modules/sample";
 
 const SampleContainer = ({
   getPost,
-  getUser,
+  getUsers,
   post,
   users,
   loadingPost,
@@ -13,8 +13,9 @@ const SampleContainer = ({
 }) => {
   useEffect(() => {
     getPost(1);
-    getUsers(1);
+    getUsers();
   }, [getPost, getUsers]);
+
   return (
     <Sample
       post={post}
